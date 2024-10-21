@@ -1,0 +1,23 @@
+/* bg.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the canvas is behind all content */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Disable interaction with the canvas */
+}
+
+section {
+  position: relative; /* Keep content on top of the canvas */
+  z-index: 1;
+}
