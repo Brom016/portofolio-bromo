@@ -1,6 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['index.html'],
+  content: [
+    './index.html',  // Hanya index.html
+    './src/**/*.{html,js,css}',  // Semua file HTML, JS, CSS dalam folder src
+  ],
   theme: {
     container: {
       center: true,
@@ -13,7 +15,7 @@ module.exports = {
         bright: '#2dd4bf',
         footer: '#374151',
       },
-      screens: {  // Corrected this key
+      screens: {
         '2xl': '1320px',
       },
     },
