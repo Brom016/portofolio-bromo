@@ -18,3 +18,19 @@ hamburger.addEventListener('click', function() {
     hamburger.classList.toggle('hamburger-active')
     navMenu.classList.toggle('hidden');
 });
+
+// PopupUrl
+function openPopup(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('popup-container').innerHTML = data;
+            document.getElementById("popup").classList.remove("hidden");
+            document.getElementById("popup").classList.add("flex");
+        });
+}
+
+function closePopup() {
+    document.getElementById("popup").classList.remove("flex");
+    document.getElementById("popup").classList.add("hidden");
+}
