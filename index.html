@@ -13,9 +13,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            mode: "jit",
-            theme: {
-                extend: {},
+            corePlugins: {
+                preflight: false  // Menonaktifkan reset bawaan Tailwind
             }
         }
     </script>
@@ -50,6 +49,29 @@
         img {
             display: inline-block !important;
         }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        
+        .navbar img {
+            max-width: 150px; /* Sesuaikan dengan ukuran logo */
+            height: auto;
+        }
+        
+        .profile-img {
+            display: block !important; /* Mencegah perubahan dari Tailwind */
+            margin: auto;
+        }
+        
+        .hero-text {
+            text-align: center !important;
+            margin-top: 20px;
+        }
+        
     </style>
 
 
