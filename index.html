@@ -11,6 +11,46 @@
     <link href="src/bg.css" rel="stylesheet">
     <link href="src/output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            mode: "jit",
+            theme: {
+                extend: {},
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @layer base {
+            body {
+                font-family: inherit;
+                /* Gunakan font default agar tidak berubah */
+            }
+
+            img {
+                all: unset;
+                /* Hindari Tailwind menghapus gaya img */
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+                margin: initial;
+                padding: initial;
+            }
+        }
+
+        .background-effect {
+            position: absolute !important;
+            z-index: -1 !important;
+        }
+
+        img {
+            display: inline-block !important;
+        }
+    </style>
 
 
 </head>
@@ -86,7 +126,7 @@
 
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-9 lg:right-0">
-                        <img src="dist/img/im.png" alt="Bromo" class="max-w-full mx-auto"/>
+                        <img src="dist/img/im.png" alt="Bromo" class="max-w-full mx-auto" />
                     </div>
                 </div>
             </div>
@@ -181,73 +221,82 @@
     <!-- ポートフォリオ 終わり -->
 
     <section id="blog" class="pt-36 pb-16">
-    <div class="container">
-        <div class="w-full px-4">
-            <div class="max-w-xl mx-auto text-center mb-15">
-                <h2 class="font-bold text-primary text-3xl mb-4">Blog</h2>
-                <p class="font-medium text-md text-primary">
-                    This blog provides interesting and useful information about IT, covering everything from tips and tutorials to in-depth discussions that help readers gain a deeper understanding.
-                </p>
+        <div class="container">
+            <div class="w-full px-4">
+                <div class="max-w-xl mx-auto text-center mb-15">
+                    <h2 class="font-bold text-primary text-3xl mb-4">Blog</h2>
+                    <p class="font-medium text-md text-primary">
+                        This blog provides interesting and useful information about IT, covering everything from tips
+                        and tutorials to in-depth discussions that help readers gain a deeper understanding.
+                    </p>
+                </div>
+            </div>
+            <div class="pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:w-10/12 xl:mx-auto">
+                <button onclick="openPopup('blog/StrukturData/strukturdata.html')" class="w-full">
+                    <div
+                        class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
+                        <div class="relative overflow-hidden w-full h-48">
+                            <img src="blog/StrukturData/datastructure.jpg" alt="Post 1"
+                                class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
+                        </div>
+                        <div class="p-5 flex-grow">
+                            <h3 class="text-lg font-semibold mb-2">Struktur Data</h3>
+                            <p class="text-gray-600">An introduction to data structures and their importance in
+                                programming.</p>
+                        </div>
+                    </div>
+                </button>
+                <button onclick="openPopup('blog/AlgoFlow/AlgoandFlow.html')" class="w-full">
+                    <div
+                        class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
+                        <div class="relative overflow-hidden w-full h-48">
+                            <img src="blog/AlgoFlow/algo.jpg" alt="Post 2"
+                                class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
+                        </div>
+                        <div class="p-5 flex-grow">
+                            <h3 class="text-lg font-semibold mb-2">Algoritma dan Flowchart</h3>
+                            <p class="text-gray-600">Tugas Nomor 1 algoritma dan flowchart penghitungan Presentase</p>
+                        </div>
+                    </div>
+                </button>
+                <button onclick="openPopup('#')" class="w-full">
+                    <div
+                        class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
+                        <div class="relative overflow-hidden w-full h-48">
+                            <img src="blog/blog3/comingsoon.jpg" alt="Post 3"
+                                class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
+                        </div>
+                        <div class="p-5 flex-grow">
+                            <h3 class="text-lg font-semibold mb-2">ComingSoon</h3>
+                            <p class="text-gray-600">ComingSoon...</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div id="popup-container"></div>
+    </section>
+    <footer class="bg-gradient-to-b from-black to-[#2dd4bf] text-white py-10">
+        <div class="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h2 class="text-xl font-semibold">Portofolio Bromo</h2>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold">Navigasi</h2>
+                <ul class="mt-2 space-y-2">
+                    <li class="group"><a href="#home" class="text-gray-300 hover:text-[#2dd4bf]">Home</a></li>
+                    <li class="group"><a href="#about" class="text-gray-300 hover:text-[#2dd4bf]">About</a></li>
+                    <li class="group"><a href="#portofolio" class="text-gray-300 hover:text-[#2dd4bf]">Portofolio</a>
+                    </li>
+                    <li class="group"><a href="#blog" class="text-gray-300 hover:text-[#2dd4bf]">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-xl font-semibold">Contact Me</h2>
+                <p class="mt-2 text-gray-300">Email: hamidbromo@gmail.com</p>
             </div>
         </div>
-        <div class="pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:w-10/12 xl:mx-auto">
-            <button onclick="openPopup('blog/StrukturData/strukturdata.html')" class="w-full">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
-                    <div class="relative overflow-hidden w-full h-48">
-                        <img src="blog/StrukturData/datastructure.jpg" alt="Post 1" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
-                    </div>
-                    <div class="p-5 flex-grow">
-                        <h3 class="text-lg font-semibold mb-2">Struktur Data</h3>
-                        <p class="text-gray-600">An introduction to data structures and their importance in programming.</p>
-                    </div>
-                </div>
-            </button>
-            <button onclick="openPopup('blog/AlgoFlow/AlgoandFlow.html')" class="w-full">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
-                    <div class="relative overflow-hidden w-full h-48">
-                        <img src="blog/AlgoFlow/algo.jpg" alt="Post 2" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
-                    </div>
-                    <div class="p-5 flex-grow">
-                        <h3 class="text-lg font-semibold mb-2">Algoritma dan Flowchart</h3>
-                        <p class="text-gray-600">Tugas Nomor 1 algoritma dan flowchart penghitungan Presentase</p>
-                    </div>
-                </div>
-            </button>
-            <button onclick="openPopup('#')" class="w-full">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col outline outline-[#2dd4bf]">
-                    <div class="relative overflow-hidden w-full h-48">
-                        <img src="blog/blog3/comingsoon.jpg" alt="Post 3" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100">
-                    </div>
-                    <div class="p-5 flex-grow">
-                        <h3 class="text-lg font-semibold mb-2">ComingSoon</h3>
-                        <p class="text-gray-600">ComingSoon...</p>
-                    </div>
-                </div>
-            </button>
-        </div>
-        <div id="popup-container"></div>
-</section>
-<footer class="bg-gradient-to-b from-black to-[#2dd4bf] text-white py-10">
-    <div class="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-            <h2 class="text-xl font-semibold">Portofolio Bromo</h2>
-        </div>
-        <div>
-            <h2 class="text-xl font-semibold">Navigasi</h2>
-            <ul class="mt-2 space-y-2">
-                <li class="group"><a href="#home" class="text-gray-300 hover:text-[#2dd4bf]">Home</a></li>
-                <li class="group"><a href="#about" class="text-gray-300 hover:text-[#2dd4bf]">About</a></li>
-                <li class="group"><a href="#portofolio" class="text-gray-300 hover:text-[#2dd4bf]">Portofolio</a></li>
-                <li class="group"><a href="#blog" class="text-gray-300 hover:text-[#2dd4bf]">Contact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2 class="text-xl font-semibold">Contact Me</h2>
-            <p class="mt-2 text-gray-300">Email: hamidbromo@gmail.com</p>
-        </div>
-    </div>
-    <div class="text-center mt-8 text-white text-sm">&copy; 2025 Portofolio Bromo.</div>
-</footer>
+        <div class="text-center mt-8 text-white text-sm">&copy; 2025 Portofolio Bromo.</div>
+    </footer>
 
     <script src="dist/js/bg.js"></script>
     <script src="dist/js/typewriter.js"></script>
@@ -265,6 +314,7 @@
     const script = document.createElement("script");
     script.src = "dist/js/script.js";
     document.body.appendChild(script);
+
 </script>
 
 </html>
