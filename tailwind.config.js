@@ -1,8 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './index.html',  // Hanya index.html
-    './src/**/*.{html,js,css}',  // Semua file HTML, JS, CSS dalam folder src
-  ],
+  content: ["./src/**/*.html", "./src/**/*.js"], // Sesuaikan path jika perlu
   theme: {
     container: {
       center: true,
