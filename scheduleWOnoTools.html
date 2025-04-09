@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Latihan Mingguan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        .calendar-day.checked {
+            background-color: #3B82F6;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-100 to-blue-100 min-h-screen font-sans">
+
+    <div class="max-w-5xl mx-auto py-12 px-6">
+        <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-10">📆 Jadwal Latihan Mingguan</h1>
+
+        <div class="text-center mt-10">
+            <button onclick="toggleCalendar()"
+                class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none">
+                📅 Lihat Rekapan Kalender
+            </button>
+        </div>
+
+        <div class="overflow-hidden shadow-xl rounded-xl bg-white mt-10">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-blue-600 text-white text-left">
+                    <tr>
+                        <th class="py-3 px-5">Hari</th>
+                        <th class="py-3 px-5">Latihan Pagi</th>
+                        <th class="py-3 px-5">Latihan Sore</th>
+                        <th class="py-3 px-5 text-center">Checklist</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-body" class="text-gray-800 divide-y divide-gray-100 bg-white"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Kalender Pop-up -->
+    <div id="calendarPopup" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex justify-center items-center min-h-screen">
+            <div class="bg-white p-6 rounded-xl shadow-2xl w-full max-w-md transform transition-all scale-100">
+                <div class="flex justify-between items-center mb-4">
+                    <button onclick="prevMonth()" class="text-blue-600 font-medium hover:underline">&lt;
+                        Sebelumnya</button>
+                    <h2 id="calendarMonth" class="font-semibold text-lg text-gray-800"></h2>
+                    <button onclick="nextMonth()" class="text-blue-600 font-medium hover:underline">Berikutnya
+                        &gt;</button>
+                </div>
+                <div class="grid grid-cols-7 gap-2 text-center text-sm font-semibold text-gray-700 mb-2">
+                    <div>Min</div>
+                    <div>Sen</div>
+                    <div>Sel</div>
+                    <div>Rab</div>
+                    <div>Kam</div>
+                    <div>Jum</div>
+                    <div>Sab</div>
+                </div>
+                <div class="grid grid-cols-7 gap-2 text-center text-sm" id="calendar"></div>
+                <div class="text-right mt-4">
+                    <button onclick="toggleCalendar()"
+                        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg focus:outline-none shadow-md">
+                        ❌ Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const latihan = [
+                {
+                    hari: "Senin",
+                    pagi: "Lari 5 km (ringan)",
+                    sore: [
+                        "Full Body Circuit x3",
+                        [
+                            "20 Push-up", "25 Squat", "1m Plank",
+                            "15 Lunge/kaki", "15 Leg Raise", "30s Mountain Climber",
+                            "Jog/Sprint 20m"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Selasa",
+                    pagi: "Lari 3-4 km (ringan)",
+                    sore: [
+                        "Core x3",
+                        [
+                            "20 Sit-up", "40 Russian Twist", "20 Bicycle Crunch",
+                            "1m Plank", "15 Leg Raise", "30s Superman Hold",
+                            "Stretching 15m", "Jog 10m"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Rabu",
+                    pagi: "Lari 6-7 km (sedang)",
+                    sore: [
+                        "Leg Day x3",
+                        [
+                            "15 Jump Squat", "10 Lunge/kaki", "1m Wall Sit",
+                            "20 Glute Bridge", "25 Calf Raise",
+                            "Sprint Intervals 10m"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Kamis",
+                    pagi: "Lari 2-3 km (ringan)",
+                    sore: [
+                        "Recovery Yoga",
+                        [
+                            "Cat-cow", "Cobra", "Child's Pose",
+                            "Hip & Shoulder Mobility",
+                            "Fokus nafas dan relaksasi (30-60m)"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Jumat",
+                    pagi: "Lari 5 km (ringan)",
+                    sore: [
+                        "Upper Body + Core x3",
+                        [
+                            "20 Push-up", "15 Chair Dip", "10 Inchworm",
+                            "30s Plank Tap", "15 Leg Raise", "30s Flutter Kick",
+                            "Tempo Run 20m"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Sabtu",
+                    pagi: "Sprint Intervals (5x400m)",
+                    sore: [
+                        "HIIT x3 (30s tiap gerakan)",
+                        [
+                            "Burpees", "Jump Lunge", "Push-up",
+                            "High Knees", "Plank-to-push-up",
+                            "Squat Jump", "Side Plank", "Stretch 10m"
+                        ]
+                    ]
+                },
+                {
+                    hari: "Minggu",
+                    pagi: "Long Run 8-10 km (santai)",
+                    sore: [
+                        "Recovery Yoga + Mobility",
+                        [
+                            "Full-body stretching & pemulihan",
+                            "Durasi 30-45 menit"
+                        ]
+                    ]
+                }
+            ];
+
+
+            const scheduleBody = document.getElementById("schedule-body");
+            let completedDates = JSON.parse(localStorage.getItem("completedDates") || "[]");
+
+            latihan.forEach((latih, i) => {
+                const row = document.createElement("tr");
+                const date = getWeekDate(i);
+                const isChecked = completedDates.includes(date);
+
+                const soreList = latih.sore[1].map(item => `<li>${item}</li>`).join("");
+                const soreHTML = `<strong>${latih.sore[0]}</strong><ul class="list-disc pl-5 mt-1 text-sm text-gray-700">${soreList}</ul>`;
+
+                row.innerHTML = `
+              <td class="py-3 px-5 font-medium">${latih.hari}</td>
+              <td class="py-3 px-5">${latih.pagi}</td>
+              <td class="py-3 px-5">${soreHTML}</td>
+              <td class="py-3 px-5 text-center">
+                <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" ${isChecked ? "checked" : ""} onchange="toggleCheck('${date}', this.checked)">
+              </td>`;
+                scheduleBody.appendChild(row);
+            });
+
+            function getWeekDate(dayOffset) {
+                const today = new Date();
+                const day = today.getDay(); // 0 = Minggu
+                const sundayOffset = 0 - day;
+                const sunday = new Date(today);
+                sunday.setDate(today.getDate() + sundayOffset);
+                const target = new Date(sunday);
+                target.setDate(sunday.getDate() + dayOffset);
+                return target.toISOString().split("T")[0];
+            }
+
+            window.toggleCheck = function (date, checked) {
+                const index = completedDates.indexOf(date);
+                if (checked && index === -1) {
+                    completedDates.push(date);
+                } else if (!checked && index !== -1) {
+                    completedDates.splice(index, 1);
+                }
+                localStorage.setItem("completedDates", JSON.stringify(completedDates));
+                renderCalendar();
+            };
+
+            let calendarDate = new Date();
+
+            function renderCalendar() {
+                const calendar = document.getElementById("calendar");
+                calendar.innerHTML = "";
+                const year = calendarDate.getFullYear();
+                const month = calendarDate.getMonth();
+                const firstDay = new Date(year, month, 1).getDay();
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                document.getElementById("calendarMonth").textContent = calendarDate.toLocaleDateString("id-ID", {
+                    month: "long",
+                    year: "numeric"
+                });
+
+                for (let i = 0; i < firstDay; i++) {
+                    calendar.innerHTML += '<div></div>';
+                }
+
+                for (let d = 1; d <= daysInMonth; d++) {
+                    const date = new Date(year, month, d);
+                    const isoDate = date.toISOString().split("T")[0];
+                    const checked = completedDates.includes(isoDate);
+                    const className = `calendar-day border p-2 rounded-lg transition duration-300 cursor-pointer hover:bg-blue-100 ${checked ? "checked font-bold shadow-sm" : "bg-gray-50"
+                        }`;
+                    calendar.innerHTML += `<div class="${className}">${d}</div>`;
+                }
+            }
+
+            window.toggleCalendar = function () {
+                const popup = document.getElementById("calendarPopup");
+                popup.classList.toggle("hidden");
+                renderCalendar();
+            };
+
+            window.prevMonth = function () {
+                calendarDate.setMonth(calendarDate.getMonth() - 1);
+                renderCalendar();
+            };
+
+            window.nextMonth = function () {
+                calendarDate.setMonth(calendarDate.getMonth() + 1);
+                renderCalendar();
+            };
+        });
+    </script>
+
+
+</body>
+
+</html>
