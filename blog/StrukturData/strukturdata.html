@@ -1,84 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struktur Data</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #2dd4bf;
-            text-align: center;
-        }
-        h2 {
-            color: #2dd4bf;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background: #2dd4bf;
-            color: white;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur Data - Dasar Ilmu Komputer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Struktur Data</h1>
-        
-        <h2>1. Pengertian Struktur Data</h2>
-        <p>Struktur data adalah cara menyimpan, mengorganisir, dan mengelola data dalam suatu sistem komputer agar dapat digunakan secara efisien. Struktur data memainkan peran penting dalam optimasi algoritma dan pengolahan data dalam berbagai aplikasi.</p>
-        
-        <h2>2. Jenis-Jenis Struktur Data</h2>
-        <ul>
-            <li><strong>Array</strong> - Struktur data linier yang menyimpan elemen dalam indeks tertentu.</li>
-            <li><strong>Linked List</strong> - Kumpulan node yang saling terhubung, memungkinkan fleksibilitas dalam penyisipan dan penghapusan data.</li>
-            <li><strong>Stack</strong> - Struktur data yang mengikuti prinsip LIFO (Last In, First Out).</li>
-            <li><strong>Queue</strong> - Struktur data yang mengikuti prinsip FIFO (First In, First Out).</li>
-            <li><strong>Tree</strong> - Struktur hierarkis yang terdiri dari node dengan hubungan parent-child.</li>
-            <li><strong>Graph</strong> - Kumpulan node yang saling terhubung dengan edge.</li>
-        </ul>
-        
-        <h2>3. Operasi Dasar pada Struktur Data</h2>
-        <ul>
-            <li><strong>Insertion</strong> - Menambahkan elemen ke dalam struktur data.</li>
-            <li><strong>Deletion</strong> - Menghapus elemen dari struktur data.</li>
-            <li><strong>Traversal</strong> - Menelusuri elemen dalam struktur data.</li>
-            <li><strong>Searching</strong> - Mencari elemen tertentu dalam struktur data.</li>
-            <li><strong>Sorting</strong> - Mengurutkan elemen berdasarkan kriteria tertentu.</li>
-        </ul>
-        
-        <h2>4. Pemilihan Struktur Data</h2>
-        <p>Pemilihan struktur data yang tepat bergantung pada kebutuhan dan jenis operasi yang sering digunakan. Contohnya:</p>
-        <ul>
-            <li><strong>Array</strong> - Cocok untuk akses cepat tetapi kurang fleksibel dalam perubahan ukuran.</li>
-            <li><strong>Linked List</strong> - Lebih fleksibel dalam ukuran tetapi memiliki akses yang lebih lambat dibanding array.</li>
-            <li><strong>Stack dan Queue</strong> - Digunakan dalam implementasi algoritma seperti DFS dan BFS.</li>
-            <li><strong>Tree dan Graph</strong> - Berguna dalam pemrosesan data berbasis hierarki dan jaringan.</li>
-        </ul>
-        
-        <h2>5. Kesimpulan</h2>
-        <p>Struktur data adalah elemen fundamental dalam ilmu komputer yang mempengaruhi kinerja dan efisiensi aplikasi. Pemahaman yang baik tentang struktur data membantu dalam memilih solusi optimal untuk berbagai permasalahan pemrograman.</p>
-        
-        <div class="footer">Hamid Argo Bromo</div>
-    </div>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
+
+  <header class="p-6 bg-gray-800 shadow-md">
+    <h1 class="text-4xl font-bold text-center text-yellow-300 animate-pulse">Struktur Data</h1>
+    <p class="text-center text-gray-300 mt-2">Dasar penting dalam pengembangan algoritma dan aplikasi</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto mt-10 px-6 space-y-10">
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-yellow-400 mb-4">1. Pengertian Struktur Data</h2>
+      <p class="text-gray-200 leading-relaxed">
+        Struktur data adalah cara menyimpan, mengorganisir, dan mengelola data dalam suatu sistem komputer agar dapat digunakan secara efisien.
+        Struktur data memainkan peran penting dalam optimasi algoritma dan pengolahan data dalam berbagai aplikasi.
+      </p>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-yellow-400 mb-4">2. Jenis-Jenis Struktur Data</h2>
+      <ul class="list-disc pl-5 text-gray-200 space-y-2">
+        <li><strong>Array</strong> – Struktur data linier yang menyimpan elemen dalam indeks tertentu.</li>
+        <li><strong>Linked List</strong> – Kumpulan node yang saling terhubung, memungkinkan fleksibilitas dalam penyisipan dan penghapusan data.</li>
+        <li><strong>Stack</strong> – Struktur data yang mengikuti prinsip LIFO (Last In, First Out).</li>
+        <li><strong>Queue</strong> – Struktur data yang mengikuti prinsip FIFO (First In, First Out).</li>
+        <li><strong>Tree</strong> – Struktur hierarkis yang terdiri dari node dengan hubungan parent-child.</li>
+        <li><strong>Graph</strong> – Kumpulan node yang saling terhubung dengan edge.</li>
+      </ul>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-yellow-400 mb-4">3. Operasi Dasar pada Struktur Data</h2>
+      <ul class="list-disc pl-5 text-gray-200 space-y-2">
+        <li><strong>Insertion</strong> – Menambahkan elemen ke dalam struktur data.</li>
+        <li><strong>Deletion</strong> – Menghapus elemen dari struktur data.</li>
+        <li><strong>Traversal</strong> – Menelusuri elemen dalam struktur data.</li>
+        <li><strong>Searching</strong> – Mencari elemen tertentu dalam struktur data.</li>
+        <li><strong>Sorting</strong> – Mengurutkan elemen berdasarkan kriteria tertentu.</li>
+      </ul>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-yellow-400 mb-4">4. Pemilihan Struktur Data</h2>
+      <p class="text-gray-200 mb-4">
+        Pemilihan struktur data yang tepat bergantung pada kebutuhan dan jenis operasi yang sering digunakan. Contohnya:
+      </p>
+      <ul class="list-disc pl-5 text-gray-200 space-y-2">
+        <li><strong>Array</strong> – Cocok untuk akses cepat tetapi kurang fleksibel dalam perubahan ukuran.</li>
+        <li><strong>Linked List</strong> – Lebih fleksibel dalam ukuran tetapi memiliki akses yang lebih lambat dibanding array.</li>
+        <li><strong>Stack dan Queue</strong> – Digunakan dalam implementasi algoritma seperti DFS dan BFS.</li>
+        <li><strong>Tree dan Graph</strong> – Berguna dalam pemrosesan data berbasis hierarki dan jaringan.</li>
+      </ul>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-yellow-400 mb-4">5. Kesimpulan</h2>
+      <p class="text-gray-200 leading-relaxed">
+        Struktur data adalah elemen fundamental dalam ilmu komputer yang mempengaruhi kinerja dan efisiensi aplikasi.
+        Pemahaman yang baik tentang struktur data membantu dalam memilih solusi optimal untuk berbagai permasalahan pemrograman.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="text-center p-6 text-sm text-gray-500 border-t border-gray-700 mt-10">
+    &copy; 2025 Artikel oleh Bromo
+  </footer>
+
 </body>
 </html>

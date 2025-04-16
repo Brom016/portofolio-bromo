@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Tree - Struktur Data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
+  <header class="p-6 bg-gray-800 shadow-md">
+    <h1 class="text-4xl font-bold text-center text-cyan-400 animate-pulse">Apa Itu Binary Tree?</h1>
+    <p class="text-center text-gray-300 mt-2">Struktur data penting dalam ilmu komputer</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto mt-10 px-6">
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg mb-10">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">Pengertian Binary Tree</h2>
+      <p class="text-gray-200 leading-relaxed">
+        Binary Tree (Pohon Biner) adalah struktur data berbentuk pohon di mana setiap node hanya memiliki paling banyak dua anak, yaitu anak kiri dan anak kanan.
+        Binary Tree digunakan dalam berbagai aplikasi seperti pencarian data, pengurutan, kompresi data, dan lainnya.
+      </p>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg mb-10">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">Struktur Dasar</h2>
+      <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-auto text-sm"><code>
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+      </code></pre>
+      <p class="mt-4 text-gray-200">
+        Setiap node menyimpan data dan dua referensi: satu ke anak kiri dan satu ke anak kanan.
+      </p>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg mb-10">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">Jenis-Jenis Binary Tree</h2>
+      <ul class="list-disc pl-5 text-gray-200 space-y-2">
+        <li><strong>Full Binary Tree:</strong> Setiap node memiliki 0 atau 2 anak.</li>
+        <li><strong>Complete Binary Tree:</strong> Semua level penuh kecuali mungkin level terakhir.</li>
+        <li><strong>Perfect Binary Tree:</strong> Semua node internal punya 2 anak dan semua daun di level yang sama.</li>
+        <li><strong>Binary Search Tree (BST):</strong> Kiri < node < kanan.</li>
+      </ul>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg mb-10">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">Visualisasi Sederhana</h2>
+      <div class="flex justify-center">
+        <img src="https://github.com/Brom016/portofolio-bromo/blob/main/blog/binarytree/Binary-Trees-in-C-normal-image01.jpg?raw=true" alt="Contoh Binary Tree" class="rounded-lg shadow-md w-full max-w-md">
+      </div>
+    </section>
+
+    <section class="bg-gray-900 p-6 rounded-2xl shadow-lg mb-10">
+      <h2 class="text-2xl font-semibold text-cyan-300 mb-4">Kelebihan & Kegunaan</h2>
+      <ul class="list-disc pl-5 text-gray-200 space-y-2">
+        <li>Meningkatkan efisiensi pencarian dan penyisipan data.</li>
+        <li>Dasar dari struktur data lanjutan seperti AVL Tree, Red-Black Tree, dan Heap.</li>
+        <li>Berguna dalam parsing ekspresi, pengkodean Huffman, dan lainnya.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="text-center p-6 text-sm text-gray-500 border-t border-gray-700 mt-10">
+    &copy; 2025 Artikel oleh Bromo
+  </footer>
+</body>
+</html>
