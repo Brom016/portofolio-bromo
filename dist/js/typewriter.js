@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const textElement = document.getElementById('typewriter');
-    const words = ['Hamid Bromo', 'UNWAHAS Student']; // Array kata yang akan ditampilkan
+    const words = ['Hamid Bromo', 'JUNIOR FRONTEND DEV']; // Array kata yang akan ditampilkan
     let currentWordIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
